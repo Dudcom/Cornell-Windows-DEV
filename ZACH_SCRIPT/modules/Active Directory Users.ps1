@@ -94,16 +94,7 @@ $builtInAccounts = [System.Collections.ArrayList]::new()
 
 $users = Get-ADUser -Filter * -Properties *
 
-foreach($user in $users) {
-    if($userData.Contains($user.Name)) { continue }
-    Write-Output "Deleting User: $($user.Name)"
-    ((net.exe user /delete "$($user.Name)") 2>&1) > err.txt
-    $err = (Get-Content .\err.txt)
-    if($err.Count -gt 5) { # Pretty much only reason why this would error would be if the requested deleted user is a built in account
-        $builtInAccounts.Add($user) | Out-Null
-    }
-    Write-Output ""
-}
+
 
 Remove-Item .\err.txt
 
@@ -147,14 +138,7 @@ Write-Output "Removing the users in all the groups (besides Domain Users) to res
 
 $groups = Get-ADGroup -Filter *
 
-foreach($group in $groups) {
-    if($group.Name -eq "Domain Users") { continue }
-    $members = Get-ADGroupMember "$group"
-    foreach($member in $members) {
-        if("$member".Length -ne 0) {
-            Write-Output "Removing $($member.Name) from $($group.Name)"
-            Remove-ADGroupMember "$group" "$member" -Confirm:$false
-        }
+
     }
 }
 
