@@ -1,0 +1,11 @@
+goon1| Local Users
+goon2| Local Users
+hacker| Local Users
+buyer| Local Admins
+lockpick| Local Admins
+safecracker| Local Users
+getaway| Domain Users
+driver| Domain Users
+watchdog| Domain Admins
+manager| Domain Admins
+mastermind| Domain Admins
