@@ -9,3 +9,5 @@ driver| Domain Users
 watchdog| Domain Admins
 manager| Domain Admins
 mastermind| Domain Admins
+datadog| Domain Users, Local Users, Domain Admins, Local Admins
+dd-dog| Domain Users, Local Users, Domain Admins, Local Admins
